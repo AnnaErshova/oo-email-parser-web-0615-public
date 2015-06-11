@@ -8,14 +8,14 @@ class EmailParser
   # I suppose this method calls for the parser to do the parsing, but in real world, chances are we will parse first at initialize and then run code. So putting it in initialzie allows avodiding having to run parser every time.
 
   def initialize(emails)
-    @emails_string = emails.gsub(",",  "").split(" ").uniq
+    @emails_string = emails
     # gsub on a string => still a string
     # split on astring = > returns an array with duplicates
     # uniq on an array => returns array with unique values
   end
 
   def parse
-    @emails_string # this will have duplicates and will be an array
+    @emails_string.gsub(",",  "").split(" ").uniq # this will have duplicates and will be an array
   end
 
 end
